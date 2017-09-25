@@ -26,10 +26,13 @@
         <mybatis.spring.version>1.2.2</mybatis.spring.version>
         <mybatis.paginator.version>1.2.15</mybatis.paginator.version>
         <mysql.version>5.1.32</mysql.version>
+        <mail.version>1.4.5</mail.version>
         <slf4j.version>1.6.4</slf4j.version>
         <jackson.version>2.4.2</jackson.version>
+        <fastjson.version>1.2.20</fastjson.version>
         <druid.version>1.0.9</druid.version>
-        <httpclient.version>4.3.5</httpclient.version>
+        <httpclient.version>4.2.3</httpclient.version>
+        <httpcore.version>4.2.3</httpcore.version>
         <jstl.version>1.2</jstl.version>
         <servlet-api.version>2.5</servlet-api.version>
         <jsp-api.version>2.0</jsp-api.version>
@@ -43,10 +46,6 @@
         <jedis.version>2.7.2</jedis.version>
         <solrj.version>4.10.3</solrj.version>
         <dubbo.version>2.5.3</dubbo.version>
-        <zookeeper.version>3.4.7</zookeeper.version>
-        <zkclient.version>0.1</zkclient.version>
-        <activemq.version>5.11.2</activemq.version>
-        <freemarker.version>2.3.23</freemarker.version>
         <quartz.version>2.2.2</quartz.version>
     </properties>
     <dependencyManagement>
@@ -73,18 +72,30 @@
                 <artifactId>commons-net</artifactId>
                 <version>${commons-net.version}</version>
             </dependency>
+
+
+            <!-- http关联-->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+            <!-- http关联-->
+
+
             <!-- Jackson Json处理工具包 -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
                 <version>${jackson.version}</version>
             </dependency>
-            <!-- httpclient -->
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>${httpclient.version}</version>
-            </dependency>
+
             <!-- quartz任务调度框架 -->
             <dependency>
                 <groupId>org.quartz-scheduler</groupId>
@@ -215,26 +226,23 @@
                 <artifactId>dubbo</artifactId>
                 <version>${dubbo.version}</version>
             </dependency>
+
+
             <dependency>
-                <groupId>org.apache.zookeeper</groupId>
-                <artifactId>zookeeper</artifactId>
-                <version>${zookeeper.version}</version>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
             </dependency>
+
+
+
+            <!-- java邮件发送 -->
             <dependency>
-                <groupId>com.github.sgroschupf</groupId>
-                <artifactId>zkclient</artifactId>
-                <version>${zkclient.version}</version>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>${mail.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.apache.activemq</groupId>
-                <artifactId>activemq-all</artifactId>
-                <version>${activemq.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.freemarker</groupId>
-                <artifactId>freemarker</artifactId>
-                <version>${freemarker.version}</version>
-            </dependency>
+            <!-- java邮件发送 -->
 
         </dependencies>
     </dependencyManagement>
